@@ -2145,7 +2145,7 @@ void task_numa_fault(int last_cpupid, int mem_node, int pages, int flags)
 	p->numa_faults[task_faults_idx(NUMA_CPUBUF, cpu_node, priv)] += pages;
 	p->numa_faults_locality[local] += pages;
 }
-
+EXPORT_SYMBOL(task_numa_fault);
 static void reset_ptenuma_scan(struct task_struct *p)
 {
 	/*

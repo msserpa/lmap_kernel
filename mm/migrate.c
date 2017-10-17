@@ -1724,6 +1724,7 @@ out:
 	put_page(page);
 	return 0;
 }
+EXPORT_SYMBOL(migrate_misplaced_page);
 #endif /* CONFIG_NUMA_BALANCING */
 
 #if defined(CONFIG_NUMA_BALANCING) && defined(CONFIG_TRANSPARENT_HUGEPAGE)

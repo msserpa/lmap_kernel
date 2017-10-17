@@ -796,7 +796,7 @@ check_pfn:
 out:
 	return pfn_to_page(pfn);
 }
-
+EXPORT_SYMBOL(vm_normal_page);
 #ifdef CONFIG_TRANSPARENT_HUGEPAGE
 struct page *vm_normal_page_pmd(struct vm_area_struct *vma, unsigned long addr,
 				pmd_t pmd)
@@ -3148,8 +3148,8 @@ static int numa_migrate_prep(struct page *page, struct vm_area_struct *vma,
 
 	return mpol_misplaced(page, vma, addr);
 }
-
-static int do_numa_page(struct mm_struct *mm, struct vm_area_struct *vma,
+EXPORT_SYMBOL(numa_migrate_prep);
+static int do_numa_page_lu(struct mm_struct *mm, struct vm_area_struct *vma,
 		   unsigned long addr, pte_t pte, pte_t *ptep, pmd_t *pmd)
 {
 	struct page *page = NULL;
@@ -3234,6 +3234,10 @@ out:
 		task_numa_fault(last_cpupid, page_nid, 1, flags);
 	return 0;
 }
+
+static int (*do_numa_page)(struct mm_struct *mm, struct vm_area_struct *vma, unsigned long addr, pte_t pte, pte_t *ptep, pmd_t *pmd) = &do_numa_page_lu;
+EXPORT_SYMBOL(do_numa_page);
+
 
 static int create_huge_pmd(struct mm_struct *mm, struct vm_area_struct *vma,
 			unsigned long address, pmd_t *pmd, unsigned int flags)
