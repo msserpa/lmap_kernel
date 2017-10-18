@@ -67,7 +67,7 @@ static inline int migrate_huge_page_move_mapping(struct address_space *mapping,
 
 #ifdef CONFIG_NUMA_BALANCING
 extern bool pmd_trans_migrating(pmd_t pmd);
-extern int migrate_misplaced_page(struct page *page,
+extern int (*migrate_misplaced_page)(struct page *page,
 				  struct vm_area_struct *vma, int node);
 #else
 static inline bool pmd_trans_migrating(pmd_t pmd)
