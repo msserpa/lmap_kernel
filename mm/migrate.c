@@ -1194,7 +1194,7 @@ out:
 
 	return rc;
 }
-
+EXPORT_SYMBOL(migrate_pages);
 #ifdef CONFIG_NUMA
 /*
  * Move a list of individual pages
@@ -1585,7 +1585,7 @@ static struct page *alloc_misplaced_dst_page(struct page *page,
 
 	return newpage;
 }
-
+EXPORT_SYMBOL(alloc_misplaced_dst_page);
 /*
  * page migration rate limiting control.
  * Do not migrate more than @pages_to_migrate in a @migrate_interval_millisecs
@@ -1663,7 +1663,7 @@ static int numamigrate_isolate_page(pg_data_t *pgdat, struct page *page)
 	put_page(page);
 	return 1;
 }
-
+EXPORT_SYMBOL(numamigrate_isolate_page);
 bool pmd_trans_migrating(pmd_t pmd)
 {
 	struct page *page = pmd_page(pmd);

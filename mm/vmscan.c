@@ -790,7 +790,7 @@ redo:
 
 	put_page(page);		/* drop ref from isolate */
 }
-
+EXPORT_SYMBOL(putback_lru_page);
 enum page_references {
 	PAGEREF_RECLAIM,
 	PAGEREF_RECLAIM_CLEAN,
