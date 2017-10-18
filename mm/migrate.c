@@ -1675,7 +1675,7 @@ bool pmd_trans_migrating(pmd_t pmd)
  * node. Caller is expected to have an elevated reference count on
  * the page that will be dropped by this function before returning.
  */
-int migrate_misplaced_page(struct page *page, struct vm_area_struct *vma,
+static int migrate_misplaced_page_lu(struct page *page, struct vm_area_struct *vma,
 			   int node)
 {
 	pg_data_t *pgdat = NODE_DATA(node);
@@ -1724,6 +1724,7 @@ out:
 	put_page(page);
 	return 0;
 }
+static int (*migrate_misplaced_page)(struct page *page, struct vm_area_struct *vma, int node) = &migrate_misplaced_page_lu;
 EXPORT_SYMBOL(migrate_misplaced_page);
 #endif /* CONFIG_NUMA_BALANCING */
 

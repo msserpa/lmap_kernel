@@ -3134,7 +3134,7 @@ static int do_fault(struct mm_struct *mm, struct vm_area_struct *vma,
 	return do_shared_fault(mm, vma, address, pmd, pgoff, flags, orig_pte);
 }
 
-static int numa_migrate_prep(struct page *page, struct vm_area_struct *vma,
+static int numa_migrate_prep_lu(struct page *page, struct vm_area_struct *vma,
 				unsigned long addr, int page_nid,
 				int *flags)
 {
@@ -3148,7 +3148,9 @@ static int numa_migrate_prep(struct page *page, struct vm_area_struct *vma,
 
 	return mpol_misplaced(page, vma, addr);
 }
+static int (*numa_migrate_prep)(struct page *page, struct vm_area_struct *vma, unsigned long addr, int page_nid, int *flags) = &numa_migrate_prep_lu;
 EXPORT_SYMBOL(numa_migrate_prep);
+
 static int do_numa_page_lu(struct mm_struct *mm, struct vm_area_struct *vma,
 		   unsigned long addr, pte_t pte, pte_t *ptep, pmd_t *pmd)
 {

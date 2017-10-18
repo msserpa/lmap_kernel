@@ -1,4 +1,5 @@
-debian/build
+ubuntu/
+debian/
 conf.str*
 #
 # NOTE! Don't add files that are generated in specific
