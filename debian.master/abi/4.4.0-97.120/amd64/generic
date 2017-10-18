@@ -6721,6 +6721,7 @@ EXPORT_SYMBOL vmlinux 0x5cf15cb0	serial8250_do_pm
 EXPORT_SYMBOL vmlinux 0x5cf53ce2	input_free_minor
 EXPORT_SYMBOL vmlinux 0x5cf806cf	d_obtain_root
 EXPORT_SYMBOL vmlinux 0x5d0161ec	proc_doulongvec_minmax
+EXPORT_SYMBOL vmlinux 0x5d29c280	numamigrate_isolate_page
 EXPORT_SYMBOL vmlinux 0x5d3bcbf7	follow_pfn
 EXPORT_SYMBOL vmlinux 0x5d550c4d	scsi_sd_probe_domain
 EXPORT_SYMBOL vmlinux 0x5d596766	phy_suspend
@@ -6744,11 +6745,13 @@ EXPORT_SYMBOL vmlinux 0x5e95b1cd	current_umask
 EXPORT_SYMBOL vmlinux 0x5e9b9600	blk_put_request
 EXPORT_SYMBOL vmlinux 0x5ea46658	__d_drop
 EXPORT_SYMBOL vmlinux 0x5eb24829	dm_shift_arg
+EXPORT_SYMBOL vmlinux 0x5ecb6b62	migrate_misplaced_page
 EXPORT_SYMBOL vmlinux 0x5ecfeec6	__per_cpu_offset
 EXPORT_SYMBOL vmlinux 0x5ed040b0	pm_set_vt_switch
 EXPORT_SYMBOL vmlinux 0x5ef42099	flow_cache_fini
 EXPORT_SYMBOL vmlinux 0x5f005368	kstrtou8
 EXPORT_SYMBOL vmlinux 0x5f098b2a	in6addr_interfacelocal_allrouters
+EXPORT_SYMBOL vmlinux 0x5f13d480	putback_lru_page
 EXPORT_SYMBOL vmlinux 0x5f3c1afc	lock_sock_nested
 EXPORT_SYMBOL vmlinux 0x5f3e0005	pci_remove_bus
 EXPORT_SYMBOL vmlinux 0x5f473575	unregister_tcf_proto_ops
@@ -6808,6 +6811,7 @@ EXPORT_SYMBOL vmlinux 0x61cdeecf	cdrom_release
 EXPORT_SYMBOL vmlinux 0x61d10c74	try_to_release_page
 EXPORT_SYMBOL vmlinux 0x61e9f8c9	genphy_suspend
 EXPORT_SYMBOL vmlinux 0x61ef6170	__tracepoint_fence_emit
+EXPORT_SYMBOL vmlinux 0x61f5ed03	migrate_pages
 EXPORT_SYMBOL vmlinux 0x61fb248a	node_states
 EXPORT_SYMBOL vmlinux 0x62049256	acpi_disable
 EXPORT_SYMBOL vmlinux 0x6214aef2	cpufreq_unregister_notifier
@@ -7930,6 +7934,7 @@ EXPORT_SYMBOL vmlinux 0x9ffa3a75	netdev_max_backlog
 EXPORT_SYMBOL vmlinux 0xa002d229	dmam_free_coherent
 EXPORT_SYMBOL vmlinux 0xa00aca2a	dql_completed
 EXPORT_SYMBOL vmlinux 0xa01540e7	bdi_destroy
+EXPORT_SYMBOL vmlinux 0xa019f272	alloc_misplaced_dst_page
 EXPORT_SYMBOL vmlinux 0xa04151bf	serial8250_set_isa_configurator
 EXPORT_SYMBOL vmlinux 0xa0436e98	in6addr_linklocal_allnodes
 EXPORT_SYMBOL vmlinux 0xa04a01bd	qdisc_class_hash_insert
@@ -9009,7 +9014,6 @@ EXPORT_SYMBOL vmlinux 0xde60dd43	security_inode_init_security
 EXPORT_SYMBOL vmlinux 0xde6151db	tcp_memory_allocated
 EXPORT_SYMBOL vmlinux 0xde7e0cc4	vm_map_ram
 EXPORT_SYMBOL vmlinux 0xde9030bf	seq_dentry
-EXPORT_SYMBOL vmlinux 0xde930583	migrate_misplaced_page
 EXPORT_SYMBOL vmlinux 0xde9360ba	totalram_pages
 EXPORT_SYMBOL vmlinux 0xde9b17ed	agp3_generic_fetch_size
 EXPORT_SYMBOL vmlinux 0xde9d23fd	inet_sendmsg
