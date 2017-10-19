@@ -7232,6 +7232,7 @@ EXPORT_SYMBOL vmlinux 0x771cf835	dma_pool_alloc
 EXPORT_SYMBOL vmlinux 0x772353fb	bdev_read_only
 EXPORT_SYMBOL vmlinux 0x772412b4	phy_find_first
 EXPORT_SYMBOL vmlinux 0x772f8958	devm_devfreq_add_device
+EXPORT_SYMBOL vmlinux 0x7731178e	do_anonymous_page
 EXPORT_SYMBOL vmlinux 0x773fa409	__kfifo_dma_in_finish_r
 EXPORT_SYMBOL vmlinux 0x77456e0a	acpi_root_dir
 EXPORT_SYMBOL vmlinux 0x77757f10	netdev_master_upper_dev_get
@@ -7263,6 +7264,7 @@ EXPORT_SYMBOL vmlinux 0x7880c781	dm_kcopyd_prepare_callback
 EXPORT_SYMBOL vmlinux 0x78866666	sk_wait_data
 EXPORT_SYMBOL vmlinux 0x789affb1	frontswap_tmem_exclusive_gets
 EXPORT_SYMBOL vmlinux 0x78a5ff8a	fence_add_callback
+EXPORT_SYMBOL vmlinux 0x78b20744	do_fault
 EXPORT_SYMBOL vmlinux 0x78bbfde9	ps2_handle_response
 EXPORT_SYMBOL vmlinux 0x78c0ae6e	generic_splice_sendpage
 EXPORT_SYMBOL vmlinux 0x78d16728	should_remove_suid
@@ -7732,6 +7734,7 @@ EXPORT_SYMBOL vmlinux 0x93fca811	__get_free_pages
 EXPORT_SYMBOL vmlinux 0x93fe5aa8	inet_addr_type
 EXPORT_SYMBOL vmlinux 0x93ffd807	i2c_clients_command
 EXPORT_SYMBOL vmlinux 0x9402a6a5	scsilun_to_int
+EXPORT_SYMBOL vmlinux 0x941a5651	do_wp_page
 EXPORT_SYMBOL vmlinux 0x945ad60b	acpi_bus_get_device
 EXPORT_SYMBOL vmlinux 0x946e1e61	devm_ioremap_resource
 EXPORT_SYMBOL vmlinux 0x948d1fcf	abx500_get_chip_id
@@ -8707,6 +8710,7 @@ EXPORT_SYMBOL vmlinux 0xcc838223	__pte2cachemode_tbl
 EXPORT_SYMBOL vmlinux 0xcc8d3f4f	acpi_os_execute
 EXPORT_SYMBOL vmlinux 0xcc9aa2a6	register_sysctl
 EXPORT_SYMBOL vmlinux 0xccacded3	dma_sync_wait
+EXPORT_SYMBOL vmlinux 0xccbc02c5	handle_pte_fault
 EXPORT_SYMBOL vmlinux 0xccc21f5e	input_get_new_minor
 EXPORT_SYMBOL vmlinux 0xccdba525	jbd2_journal_invalidatepage
 EXPORT_SYMBOL vmlinux 0xcce8ee11	in6_dev_finish_destroy
@@ -8957,6 +8961,7 @@ EXPORT_SYMBOL vmlinux 0xdaea6e0d	mfd_clone_cell
 EXPORT_SYMBOL vmlinux 0xdb16b170	topology_phys_to_logical_pkg
 EXPORT_SYMBOL vmlinux 0xdb1a7741	dquot_alloc_inode
 EXPORT_SYMBOL vmlinux 0xdb3bcca6	cancel_delayed_work
+EXPORT_SYMBOL vmlinux 0xdb3ccf6f	do_swap_page
 EXPORT_SYMBOL vmlinux 0xdb42e832	tty_driver_kref_put
 EXPORT_SYMBOL vmlinux 0xdb57f40f	generic_shutdown_super
 EXPORT_SYMBOL vmlinux 0xdb5c572a	write_dirty_buffer
@@ -9089,6 +9094,7 @@ EXPORT_SYMBOL vmlinux 0xe20372ae	radix_tree_gang_lookup
 EXPORT_SYMBOL vmlinux 0xe20ae353	bh_submit_read
 EXPORT_SYMBOL vmlinux 0xe21a601f	ipv6_mc_check_mld
 EXPORT_SYMBOL vmlinux 0xe23ae481	blk_iopoll_complete
+EXPORT_SYMBOL vmlinux 0xe23f0fab	ptep_set_access_flags
 EXPORT_SYMBOL vmlinux 0xe24d3a97	jiffies_64
 EXPORT_SYMBOL vmlinux 0xe254af4b	single_open
 EXPORT_SYMBOL vmlinux 0xe259ae9e	_raw_spin_lock

@@ -2323,7 +2323,7 @@ static int wp_page_shared(struct mm_struct *mm, struct vm_area_struct *vma,
  * but allow concurrent faults), with pte both mapped and locked.
  * We return with mmap_sem still held, but pte unmapped and unlocked.
  */
-static int do_wp_page(struct mm_struct *mm, struct vm_area_struct *vma,
+int do_wp_page(struct mm_struct *mm, struct vm_area_struct *vma,
 		unsigned long address, pte_t *page_table, pmd_t *pmd,
 		spinlock_t *ptl, pte_t orig_pte)
 	__releases(ptl)
@@ -2395,6 +2395,7 @@ static int do_wp_page(struct mm_struct *mm, struct vm_area_struct *vma,
 	return wp_page_copy(mm, vma, address, page_table, pmd,
 			    orig_pte, old_page);
 }
+EXPORT_SYMBOL(do_wp_page);
 
 static void unmap_mapping_range_vma(struct vm_area_struct *vma,
 		unsigned long start_addr, unsigned long end_addr,
@@ -2484,7 +2485,7 @@ EXPORT_SYMBOL(unmap_mapping_range);
  * We return with the mmap_sem locked or unlocked in the same cases
  * as does filemap_fault().
  */
-static int do_swap_page(struct mm_struct *mm, struct vm_area_struct *vma,
+int do_swap_page(struct mm_struct *mm, struct vm_area_struct *vma,
 		unsigned long address, pte_t *page_table, pmd_t *pmd,
 		unsigned int flags, pte_t orig_pte)
 {
@@ -2661,13 +2662,13 @@ out_release:
 	}
 	return ret;
 }
-
+EXPORT_SYMBOL(do_swap_page);
 /*
  * We enter with non-exclusive mmap_sem (to exclude vma changes,
  * but allow concurrent faults), and pte mapped but not yet locked.
  * We return with mmap_sem still held, but pte unmapped and unlocked.
  */
-static int do_anonymous_page(struct mm_struct *mm, struct vm_area_struct *vma,
+int do_anonymous_page(struct mm_struct *mm, struct vm_area_struct *vma,
 		unsigned long address, pte_t *page_table, pmd_t *pmd,
 		unsigned int flags)
 {
@@ -2753,7 +2754,7 @@ oom_free_page:
 oom:
 	return VM_FAULT_OOM;
 }
-
+EXPORT_SYMBOL(do_anonymous_page);
 /*
  * The mmap_sem must have been held on entry, and may have been
  * released depending on flags and vma->vm_ops->fault() return value.
@@ -3114,7 +3115,7 @@ static int do_shared_fault(struct mm_struct *mm, struct vm_area_struct *vma,
  * The mmap_sem may have been released depending on flags and our
  * return value.  See filemap_fault() and __lock_page_or_retry().
  */
-static int do_fault(struct mm_struct *mm, struct vm_area_struct *vma,
+int do_fault(struct mm_struct *mm, struct vm_area_struct *vma,
 		unsigned long address, pte_t *page_table, pmd_t *pmd,
 		unsigned int flags, pte_t orig_pte)
 {
@@ -3133,7 +3134,7 @@ static int do_fault(struct mm_struct *mm, struct vm_area_struct *vma,
 				orig_pte);
 	return do_shared_fault(mm, vma, address, pmd, pgoff, flags, orig_pte);
 }
-
+EXPORT_SYMBOL(do_fault);
 static int numa_migrate_prep_lu(struct page *page, struct vm_area_struct *vma,
 				unsigned long addr, int page_nid,
 				int *flags)
@@ -3278,7 +3279,7 @@ static int wp_huge_pmd(struct mm_struct *mm, struct vm_area_struct *vma,
  * The mmap_sem may have been released depending on flags and our
  * return value.  See filemap_fault() and __lock_page_or_retry().
  */
-static int handle_pte_fault(struct mm_struct *mm,
+static int handle_pte_fault_lu(struct mm_struct *mm,
 		     struct vm_area_struct *vma, unsigned long address,
 		     pte_t *pte, pmd_t *pmd, unsigned int flags)
 {
@@ -3338,7 +3339,8 @@ unlock:
 	pte_unmap_unlock(pte, ptl);
 	return 0;
 }
-
+static int (*handle_pte_fault)(struct mm_struct *mm, struct vm_area_struct *vma, unsigned long address, pte_t *pte, pmd_t *pmd, unsigned int flags) = &handle_pte_fault_lu;
+EXPORT_SYMBOL(handle_pte_fault);
 /*
  * By the time we get here, we already hold the mm semaphore
  *

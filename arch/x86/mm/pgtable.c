@@ -419,7 +419,7 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
 
 	return changed;
 }
-
+EXPORT_SYMBOL(ptep_set_access_flags);
 #ifdef CONFIG_TRANSPARENT_HUGEPAGE
 int pmdp_set_access_flags(struct vm_area_struct *vma,
 			  unsigned long address, pmd_t *pmdp,
