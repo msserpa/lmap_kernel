@@ -9293,6 +9293,7 @@ EXPORT_SYMBOL vmlinux 0xed9f9a20	__ctzsi2
 EXPORT_SYMBOL vmlinux 0xedbaee5e	nla_strcmp
 EXPORT_SYMBOL vmlinux 0xedbb77bf	rwsem_down_read_failed
 EXPORT_SYMBOL vmlinux 0xedc03953	iounmap
+EXPORT_SYMBOL vmlinux 0xedc1f42c	sched_setaffinity
 EXPORT_SYMBOL vmlinux 0xeddbc8fd	sock_no_mmap
 EXPORT_SYMBOL vmlinux 0xedf3cc6f	get_random_long
 EXPORT_SYMBOL vmlinux 0xee2d0fc7	_local_bh_enable
